@@ -94,8 +94,9 @@ Contributions are welcome! Please fork the repository and create a pull request 
 This project is licensed under the MIT License.
 
 ## Acknowledgements
-- **Python Libraries:** speech_recognition, pyttsx3, pywhatkit, wikipedia, pyjokes, requests, aiohttp, python_weather, selenium, and webdriver_manager.
-- **APIs:** WeatherAPI, NewsAPI.
+- **Python Libraries:** speech_recognition , pyttsx3 , pywhatkit , wikipedia , pyjokes , requests , aiohttp , python_weather , selenium , and webdriver_manager.
+- **APIs:** WeatherAPI , NewsAPI , JokeAPI , Amazon-Q , Amazon CodeWhisperer.
+- **Development Tools:** VS Code , PyCharm , JetBrains Toolbox , Postman , Notepad.
 
 
 ## Contact
