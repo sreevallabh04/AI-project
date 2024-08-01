@@ -9,6 +9,9 @@ Alexa is a personal assistant application that can perform various tasks such as
 
 This project was developed by Ayush Aryan, a B.Tech student specializing in Computer Science and Engineering. Ayush is passionate about developing practical applications and enhancing user experiences through technology.
 
+## Snapshot
+![image](https://github.com/user-attachments/assets/13547659-9966-4f90-96d3-e63640c3e3b4)
+
 
 
 ## Features
