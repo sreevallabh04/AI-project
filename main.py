@@ -28,9 +28,9 @@ newsapi_key = "e1b9396392044aa5bcecb7f0ab29dbb6"
 listener = sr.Recognizer()
 engine = pyttsx3.init()
 
-# Make the voice of Alexa female and adjust settings
+# Make the voice of zara female and adjust settings
 voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[1].id)  # Choose the most similar voice to Alexa; adjust index as needed
+engine.setProperty('voice', voices[1].id)  # Choose the most similar voice to zara; adjust index as needed
 engine.setProperty('rate', 140)  # Speed of speech
 engine.setProperty('volume', 1)  # Volume (0.0 to 1.0)
 
@@ -56,8 +56,8 @@ def take_command(trigger_word_active=True):
                     voice = listener.listen(source, timeout=10, phrase_time_limit=10)
                     command = listener.recognize_google(voice)
                     command = command.lower()
-                    if trigger_word_active and 'alexa' in command:
-                        command = command.replace('alexa', '').strip()
+                    if trigger_word_active and 'zara' in command:
+                        command = command.replace('zara', '').strip()
                         print(f"Command received: {command}")
                         break
                     elif not trigger_word_active:
@@ -144,7 +144,7 @@ async def get_weather(city_name: str):
             talk("Sorry, I couldn't fetch the weather information. Please try again.")
 
 
-def run_alexa(trigger_word_active=True):
+def run_zara(trigger_word_active=True):
     command = take_command(trigger_word_active)
     print(f"Processing command: {command}")
 
@@ -300,10 +300,10 @@ def run_alexa(trigger_word_active=True):
                 talk('You are welcome! Is there anything else I can help you with?')
                 command_handled = True
             elif 'what is your name' in command:
-                talk('My name is Alexa.')
+                talk('My name is zara.')
                 command_handled = True
             elif 'who are you' in command:
-                talk('I am Alexa, your personal assistant. How can I help you today?')
+                talk('I am zara, your personal assistant. How can I help you today?')
                 command_handled = True
             elif 'what can you do' in command or 'what you can do' in command:
                 talk('I can play music, tell you the time, date, and much more. What would you like to do?')
@@ -326,7 +326,7 @@ def run_alexa(trigger_word_active=True):
                 talk('My favorite color is blue.')
                 command_handled = True
             elif 'what is your favourite food' in command:
-                talk('I like pizza.')
+                talk('I like Internet.')
                 command_handled = True
             elif 'open google using chrome' in command.lower():
                 talk("Opening Google using Chrome.")
@@ -346,12 +346,15 @@ def run_alexa(trigger_word_active=True):
                 talk('I like cricket.')
                 command_handled = True
             elif 'who is ayush aryan' in command:
-                talk('Ayush Aryan is a student who is pursuing B.Tech in Computer Science and Engineering.')
+                talk('Ayush Aryan is a student who is pursuing BTech in Computer Science and Engineering.')
+                talk('who has designed and developed me as a AI assistant. If you have any other questions, feel free to ask!')
+                command_handled = True
+            elif 'who created you' in command:
+                talk("I was created by Ayush Aryan, who designed and developed me as a personal assistant. If you have any other questions, feel free to ask!")
                 command_handled = True
             elif 'weather in' in command:
                 city = command.split('weather in')[1].strip()
-                weather_info = get_weather()
-                talk(weather_info)
+                asyncio.run(get_weather(city))
                 command_handled = True
             elif 'nutrition' in command:
                 nutrition_tips = get_nutrition_tips()
@@ -361,20 +364,32 @@ def run_alexa(trigger_word_active=True):
                 recipe_ideas = get_recipe_ideas()
                 talk(recipe_ideas)
                 command_handled = True
+            elif 'how to make pasta' in command or 'pasta recipe' in command:
+                talk("Here's a simple recipe for making pasta:")
+                talk("1. Boil water in a large pot. Add a pinch of salt to the water.")
+                talk("2. Once the water is boiling, add the pasta. Stir occasionally to prevent sticking.")
+                talk("3. Cook the pasta according to the package instructions, usually 8-12 minutes.")
+                talk("4. While the pasta is cooking, you can prepare the sauce. Heat some olive oil in a pan and add garlic, onions, or your preferred vegetables.")
+                talk("5. Add your favorite sauce or ingredients like tomatoes, herbs, or cream to the pan and let it simmer.")
+                talk("6. Drain the pasta once it's cooked and add it to the sauce. Mix well.")
+                talk("7. Serve hot with grated cheese or fresh basil if desired.")
+                talk("Enjoy your homemade pasta!")
+                command_handled = True
+
 
         if not command_handled:
             talk('Sorry, I did not understand that. Please say the command again.')
 
     if opened_app_or_site:
         # Prompt for activation only after opening a website or application
-        run_alexa()
+        run_zara()
 
     return True
 
 
 # Initial startup message
-print("Hello, I am Alexa, your virtual assistant. I am now activated and ready to assist you.")
-talk("Hello, I am Alexa, your virtual assistant. I am now activated and ready to assist you.")
+print("Hello, I am Zara, your virtual assistant. I am now activated and ready to assist you.")
+talk("Hello, I am zaaara, your virtual assistant. I am now activated and ready to assist you.")
 
 
 # Choose the mode: Set `trigger_word_active` to True for trigger word activation or False for continuous listening
@@ -382,7 +397,7 @@ trigger_word_active = True
 
 while True:
     try:
-        if not run_alexa(trigger_word_active):
+        if not run_zara(trigger_word_active):
             break
     except KeyboardInterrupt:
         print("The program has been interrupted. Exiting now...")
